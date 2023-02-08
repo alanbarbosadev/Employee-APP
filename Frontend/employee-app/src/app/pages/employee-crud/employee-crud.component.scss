@@ -1,0 +1,20 @@
+button {
+  background: var(--primary-color);
+  color: #fff;
+  margin-right: 10px;
+}
+
+thead,
+.id {
+  color: var(--primary-color);
+}
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.btn {
+  margin-bottom: 5px;
+}

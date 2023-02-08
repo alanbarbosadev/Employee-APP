@@ -1,0 +1,52 @@
+<div class="loader-container" *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="container-fluid">
+  <div class="row m-3">
+    <div class="col">
+      <button
+        type="button"
+        class="btn primary-color"
+        (click)="navigateToCreateDepartment()"
+      >
+        New Department
+      </button>
+    </div>
+  </div>
+  <div class="row m-5">
+    <div class="col align-self-center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let department of departments">
+            <td>{{ department.name }}</td>
+            <td>
+              <div>
+                <a routerLink="/department/edit/{{ department.id }}">
+                  <button type="button" class="btn">Edit</button>
+                </a>
+                <a>
+                  <button
+                    type="button"
+                    class="btn"
+                    (click)="delete(department)"
+                  >
+                    Delete
+                  </button>
+                </a>
+                <a routerLink="/department/employees/{{ department.id }}">
+                  <button type="button" class="btn">Show Employees</button>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

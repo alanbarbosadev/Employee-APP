@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #536dfe;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snack-bar{
+  background-color: #FFF;
+  color: var(--primary-color);
+  font-weight: bold;
+}

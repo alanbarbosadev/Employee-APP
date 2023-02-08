@@ -1,0 +1,53 @@
+<div class="loader-container" *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="container-fluid">
+  <div class="row m-3">
+    <div class="col">
+      <button
+        type="button"
+        class="btn primary-color"
+        (click)="navigateToCreateEmployee()"
+      >
+        New Employee
+      </button>
+    </div>
+  </div>
+  <div class="row m-5">
+    <div class="col align-self-center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surmane</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.surname }}</td>
+            <td>{{ employee.salary | currency: "BRL" }}</td>
+            <td>{{ formattedBirthday(employee.birthday) }}</td>
+            <td>{{ employee.department!.name }}</td>
+            <td>
+              <div>
+                <a routerLink="/employee/edit/{{ employee.id }}"
+                  ><button type="button" class="btn">Edit</button></a
+                >
+                <a
+                  ><button type="button" class="btn" (click)="delete(employee)">
+                    Delete
+                  </button></a
+                >
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

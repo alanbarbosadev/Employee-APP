@@ -1,0 +1,74 @@
+<div class="loader-container" *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col align-self-center">
+      <form [formGroup]="employeeCreateForm">
+        <div class="mb-1">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="surname" class="form-label">Surname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="surname"
+            formControlName="surname"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="salary" class="form-label">Salary</label>
+          <input
+            type="number"
+            class="form-control"
+            id="salary"
+            formControlName="salary"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="birthday" class="form-label">Birthday</label>
+          <input
+            type="date"
+            class="form-control"
+            id="birthday"
+            formControlName="birthday"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="department" class="form-label">Department</label>
+          <select class="form-select" formControlName="departmentId">
+            <option
+              *ngFor="let department of departments"
+              value="{{ department.id }}"
+            >
+              {{ department.name }}
+            </option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col align-self-center">
+      <button
+        type="button"
+        class="btn primary-color"
+        [disabled]="!employeeCreateForm.valid"
+        (click)="registerEmployee()"
+      >
+        Register New Employee
+      </button>
+      <button type="button" class="btn btn-danger" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

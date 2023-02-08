@@ -1,0 +1,35 @@
+<div class="loader-container" *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col align-self-center">
+      <form [formGroup]="departmentEditForm">
+        <div class="mb-1">
+          <label for="departmentName" class="form-label">Name</label>
+          <input
+            type="email"
+            class="form-control"
+            id="departmentName"
+            formControlName="name"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col align-self-center">
+      <button
+        type="button"
+        class="btn primary-color"
+        (click)="editDepartment()"
+      >
+        Update Department
+      </button>
+      <button type="button" class="btn btn-danger" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

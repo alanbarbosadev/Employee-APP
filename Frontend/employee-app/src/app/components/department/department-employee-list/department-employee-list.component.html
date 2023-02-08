@@ -1,0 +1,40 @@
+<div class="loader-container" *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="container-fluid">
+  <div class="row m-3">
+    <div class="col">
+      <button
+        type="button"
+        class="btn primary-color"
+        (click)="navigateToDepartments()"
+      >
+        Return To Departments
+      </button>
+    </div>
+  </div>
+  <div class="row m-5">
+    <div class="col align-self-center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surmane</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Birthday</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of department.employees">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.surname }}</td>
+            <td>{{ employee.salary | currency: "BRL" }}</td>
+            <td>{{ formattedBirthday(employee.birthday) }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
